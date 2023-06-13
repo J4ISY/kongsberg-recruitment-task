@@ -1,0 +1,33 @@
+.header {
+  width: 100%;
+  background-color: grey;
+}
+
+.header-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 60%;
+}
+
+.header-logo {
+  width: 150px;
+}
+.header-nav {}
+.header-link {}
+
+.dropdown-btn {}
+.dropdown-menu {}
+
+.dropdown-menu.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.dropdown-menu.inactive {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.dropdown-items {}
+.dropdown-item {}
