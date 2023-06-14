@@ -92,12 +92,10 @@
   border-bottom: 1px solid black;
 }
 
-/* Zmiana koloru elementów w dropdownie po najechaniu */
-.dropdown-content a:hover {
+.dropdown-item:hover {
   background-color: #f1f1f1;
 }
 
-/* Pokazanie zawartości dropdownu po najechaniu na niego */
 .dropdown:hover .dropdown-content {
   display: block;
 }
