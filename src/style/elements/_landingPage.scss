@@ -1,0 +1,106 @@
+.main {
+  width: 100%;
+  position: relative;
+  padding-top: 20px;
+  background-color: rgba($main-color, .6);
+}
+
+.search-games-t {
+  width: 90%;
+  margin-left: 5%;
+  height: 50px;
+  box-shadow: 0 1px 18px -5px rgba(66, 68, 90, 1);
+  border: 1px solid $main-color;
+  border-radius: 30px;
+  align-self: center;
+  padding-left: 30px;
+  font-size: 25px;
+  background-color: rgba($main-color, 1);
+  color: gray;
+}
+
+.search-games-t:focus-visible {
+  outline: none;
+}
+
+.search-games-btn {
+  position: absolute;
+  top: 18px;
+  right: 3%;
+  height: 55px;
+  width: 80px;
+  border: none;
+  background-color: transparent;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all .5s;
+  color: gray;
+}
+
+.search-games-btn:hover {
+  transform: scale(1.2);
+}
+
+.main-wrapper {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.main-row {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.single-game {
+  box-sizing: border-box;
+  //border: 3px solid lightcoral;
+  width: 27%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 80px;
+  transition: all .5s;
+  a {
+    height: 200px;
+  }
+}
+
+.single-game:hover {
+  transform: scale(1.05);
+}
+
+.single-game-img {
+  width: 350px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.single-game-content {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 330px;
+  padding-left: 20px;
+  background-color: lightgreen;
+}
+
+.single-game-title {
+  text-decoration: none;
+  color: $main-color;
+  font-size: 25px;
+}
+.single-game-shortdesc {
+  align-self: flex-start;
+}
+.single-game-gamegenre {}
