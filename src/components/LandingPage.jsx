@@ -19,16 +19,16 @@ function LandingPage() {
                 </form>
                 <div className="main-wrapper">
                     <div className="main-row">
-                        {data.map((entry) => {
+                        {data && data.map((entry) => {
                             return (
                                 <>
                                     <div className="single-game">
-                                        <Link to='/'>
+                                        <Link to={`/${entry.id}`}>
                                             <img src={entry.thumbnail || null} alt={entry.title}
                                                  className="single-game-img"/>
                                         </Link>
                                         <div className="single-game-content">
-                                            <Link to='/' className="single-game-title">{entry.title}</Link>
+                                            <Link to={`/${entry.id}`} className="single-game-title">{entry.title}</Link>
                                             <p className="single-game-shortdesc">{entry.short_description}</p>
                                             <div className='genre-box'>
                                                 <span className="single-game-gamegenre">{entry.genre}</span>
