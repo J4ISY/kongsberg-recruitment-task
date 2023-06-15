@@ -1,11 +1,15 @@
 import { useEffect, useState } from 'react';
+import {useParams} from "react-router-dom";
 
-function useGameData(url) {
+function useBigView() {
 
     const [data, setData] = useState(null);
+    const { postId } = useParams();
+
+    const url = `https://free-to-play-games-database.p.rapidapi.com/api/game?id=${postId}`
 
     useEffect(() => {
-        async function fetchGames() {
+        async function fetchBigView() {
             const options = {
                 method: 'GET',
                 headers: {
@@ -23,10 +27,10 @@ function useGameData(url) {
             }
         }
 
-        fetchGames();
-    }, []);
+        fetchBigView();
+    }, [postId]);
 
     return data;
 }
 
-export default useGameData;
+export default useBigView;
