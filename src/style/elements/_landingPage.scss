@@ -2,7 +2,7 @@
   width: 100%;
   position: relative;
   padding-top: 20px;
-  background-color: rgba($main-color, .6);
+  background-color: rgba($main-color, .2);
 }
 
 .search-games-t {
@@ -86,26 +86,42 @@
   width: 365px;
   height: 200px;
   object-fit: cover;
-
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
 }
 
 .single-game-content {
   //width: 85%;
   width: 365px;
   box-sizing: border-box;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding: 20px;
   min-height: 220px;
-  padding-left: 20px;
-  background-color: lightgreen;
+  background-color: rgba($main-color, .6);
+  color: white;
+  cursor: context-menu;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
 
 .single-game-title {
   text-decoration: none;
-  color: $main-color;
+  color: white;
   font-size: 25px;
+  font-weight: 400;
 }
 .single-game-shortdesc {
-  align-self: flex-start;
+  font-weight: 300;
 }
-.single-game-gamegenre {}
+
+.genre-box {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+}
+.single-game-gamegenre {
+  text-align: right;
+  background-color: rgba($main-color, .3);
+  padding: 5px 10px;
+  border-radius: 50px;
+}
