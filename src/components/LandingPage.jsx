@@ -22,7 +22,7 @@ function LandingPage() {
                         {data.map((entry) => {
                             return (
                                 <>
-                                    <div className="single-game" >
+                                    <div className="single-game">
                                         <Link to='/'>
                                             <img src={entry.thumbnail || null} alt={entry.title}
                                                  className="single-game-img"/>
@@ -30,7 +30,9 @@ function LandingPage() {
                                         <div className="single-game-content">
                                             <Link to='/' className="single-game-title">{entry.title}</Link>
                                             <p className="single-game-shortdesc">{entry.short_description}</p>
-                                            <span className="single-game-gamegenre">{entry.genre}</span>
+                                            <div className='genre-box'>
+                                                <span className="single-game-gamegenre">{entry.genre}</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </>
@@ -43,4 +45,4 @@ function LandingPage() {
     );
 }
 
-export default LandingPage;
+    export default LandingPage;
