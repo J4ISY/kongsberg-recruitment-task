@@ -1,7 +1,9 @@
 import {Link} from "react-router-dom";
-import React, {useState} from "react";
+import useCategories from "../../helpers/apiCategories.jsx";
 
 function Header() {
+
+    const data = useCategories('https://free-to-play-games-database.p.rapidapi.com/api/games')
 
     return (
         <>
@@ -14,9 +16,13 @@ function Header() {
                         <div className="dropdown">
                             <button className="home-link drop-btn">Dropdown<i className="arrow down"></i></button>
                             <div className="dropdown-content">
-                                <Link to='' className='dropdown-item'>Element 1</Link>
-                                <Link to='' className='dropdown-item'>Element 2</Link>
-                                <Link to='' className='dropdown-item'>Element 3</Link>
+                                {data.map((genre) => {
+                                    return (
+                                        <>
+                                            <Link to='' className='dropdown-item'>{genre}</Link>
+                                        </>
+                                    )
+                                })}
                             </div>
                         </div>
                     </nav>
