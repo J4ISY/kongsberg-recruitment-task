@@ -1,34 +1,11 @@
 import Header from "./template/Header.jsx";
 import {AiOutlineSearch} from "react-icons/ai";
 import {Link} from "react-router-dom";
-import {useState, useEffect} from "react";
+import useGameData from "../helpers/apiGames.jsx";
 
 function LandingPage() {
 
-    const [data, setData] = useState([]);
-
-    useEffect(() => {
-        async function fetchData() {
-            const url = 'https://free-to-play-games-database.p.rapidapi.com/api/games';
-            const options = {
-                method: 'GET',
-                headers: {
-                    'X-RapidAPI-Key': '1d6ce4a9c9msh109797109f8c49cp1bb5ecjsneffd7b998d9c',
-                    'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com'
-                }
-            };
-
-            try {
-                const response = await fetch(url, options);
-                const result = await response.json();
-                setData(result);
-            } catch (error) {
-                console.error(error);
-            }
-        }
-
-        fetchData();
-    }, []);
+    const data = useGameData('https://free-to-play-games-database.p.rapidapi.com/api/games');
 
     return (
         <>
