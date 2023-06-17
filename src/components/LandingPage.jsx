@@ -1,15 +1,85 @@
 import Header from "./template/Header.jsx";
 import {AiOutlineSearch} from "react-icons/ai";
 import {Link} from "react-router-dom";
-import useGameData from "../helpers/apiGames.jsx";
+// import useGameData from "../helpers/apiGames.jsx";
+import {useEffect, useState} from "react";
+import useCategories from "../helpers/apiCategories.jsx";
 
 function LandingPage() {
 
-    const data = useGameData('https://free-to-play-games-database.p.rapidapi.com/api/games');
+    const [data, setData] = useState('');
+    const [genreGame, setGenreGame] = useState('');
+    const [url, setUrl] = useState('https://free-to-play-games-database.p.rapidapi.com/api/games');
+
+    const dataCategories = useCategories(`https://free-to-play-games-database.p.rapidapi.com/api/games`);
+
+    useEffect(() => {
+        async function fetchGames() {
+            // e.preventDefault();
+            // if(genreGame === '') {
+            //     setUrl = `https://free-to-play-games-database.p.rapidapi.com/api/games`;
+            // }
+            // else {
+            //     setUrl = `https://free-to-play-games-database.p.rapidapi.com/api/games?category=${genreGame}`;
+            // }
+
+
+
+            const options = {
+                method: 'GET',
+                headers: {
+                    'X-RapidAPI-Key': '1d6ce4a9c9msh109797109f8c49cp1bb5ecjsneffd7b998d9c',
+                    'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com'
+                }
+            };
+
+            try {
+                const response = await fetch(url, options);
+                const result = await response.json();
+                setData(result);
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+        fetchGames();
+    }, [url]);
+
+    // const handleCategory = (input) => {
+    //     setUrl(`https://free-to-play-games-database.p.rapidapi.com/api/games?category=${genreGame}`)
+    //     setGenreGame(input)
+    //     console.log(input);
+    // }
 
     return (
         <>
-            <Header/>
+            <header className="header">
+                <div className="header-wrapper">
+                    <Link to='/'><img src="src/assets/images/logo.png" alt="xbox controller"
+                                      className="header-logo"/></Link>
+                    <nav className="header-nav">
+                        <Link to="/" className="home-link">Main Page</Link>
+                        <div className="dropdown">
+                            <button className="home-link drop-btn">Dropdown<i className="arrow down"></i></button>
+                            <div className="dropdown-content">
+                                {dataCategories.map((genre) => {
+                                    return (
+                                        <>
+                                            <button
+                                                onClick={() => {
+                                                    setGenreGame(genre);
+                                                    console.log('genre game ' + genreGame);
+                                                }}
+                                                className='dropdown-item'
+                                            >{genre}</button>
+                                        </>
+                                    )
+                                })}
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </header>
             <main className="main">
                 <form action="" className="search-games">
                     <label htmlFor="search-games-input"></label>
@@ -45,4 +115,4 @@ function LandingPage() {
     );
 }
 
-    export default LandingPage;
+export default LandingPage;
