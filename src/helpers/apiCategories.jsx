@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-function useCategories(url) {
+function useCategories() {
     const [data, setData] = useState([]);
 
     useEffect(() => {
@@ -14,7 +14,7 @@ function useCategories(url) {
             };
 
             try {
-                const response = await fetch(url, options);
+                const response = await fetch('https://free-to-play-games-database.p.rapidapi.com/api/games', options);
                 const result = await response.json();
                 // Set is deleting duplicates creating a new array w unique "game genre"
                 const genres = [...new Set(result.map((game) => game.genre))];

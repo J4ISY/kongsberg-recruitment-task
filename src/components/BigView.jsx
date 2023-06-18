@@ -8,6 +8,7 @@ function BigView() {
 
     const data = useBigView();
 
+
     return (
         <>
             <Header />
@@ -15,6 +16,7 @@ function BigView() {
                 <Link to='/' className='big-go-back'><AiOutlineRollback/></Link>
                 <div className="big-view-wrapper">
                     {data && (
+                        console.log(data),
                         <>
                             <div className="big-top">
                                 <div className="big-menu"></div>
@@ -37,7 +39,7 @@ function BigView() {
                             </div>
                             <div className="big-bot">
                                 <h2 className="big-title">{data.title}</h2>
-                                <p className="big-text">{data.short_description}</p>
+                                <p className="big-text">{data.description}</p>
                                 <Link to={data.game_url} className="big-btn" target='_blank'>Read More<FiChevronsRight className='hide'/></Link>
                             </div>
                         </>

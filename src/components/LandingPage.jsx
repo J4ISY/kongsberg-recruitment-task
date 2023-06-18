@@ -8,22 +8,19 @@ import useCategories from "../helpers/apiCategories.jsx";
 function LandingPage() {
 
     const [data, setData] = useState('');
-    const [genreGame, setGenreGame] = useState('');
-    const [url, setUrl] = useState('https://free-to-play-games-database.p.rapidapi.com/api/games');
+    const [categoryGame, setCategoryGame] = useState('shooter');
 
-    const dataCategories = useCategories(`https://free-to-play-games-database.p.rapidapi.com/api/games`);
+    const dataCategories = useCategories();
 
     useEffect(() => {
         async function fetchGames() {
             // e.preventDefault();
             // if(genreGame === '') {
-            //     setUrl = `https://free-to-play-games-database.p.rapidapi.com/api/games`;
+            //     setGenreGame('shooter');
             // }
             // else {
             //     setUrl = `https://free-to-play-games-database.p.rapidapi.com/api/games?category=${genreGame}`;
             // }
-
-
 
             const options = {
                 method: 'GET',
@@ -34,7 +31,7 @@ function LandingPage() {
             };
 
             try {
-                const response = await fetch(url, options);
+                const response = await fetch(`https://free-to-play-games-database.p.rapidapi.com/api/games?category=${categoryGame}`, options);
                 const result = await response.json();
                 setData(result);
             } catch (error) {
@@ -43,7 +40,7 @@ function LandingPage() {
         }
 
         fetchGames();
-    }, [url]);
+    });
 
     // const handleCategory = (input) => {
     //     setUrl(`https://free-to-play-games-database.p.rapidapi.com/api/games?category=${genreGame}`)
@@ -67,8 +64,8 @@ function LandingPage() {
                                         <>
                                             <button
                                                 onClick={() => {
-                                                    setGenreGame(genre);
-                                                    console.log('genre game ' + genreGame);
+                                                    setCategoryGame(genre);
+                                                    console.log('genre game ' + setCategoryGame);
                                                 }}
                                                 className='dropdown-item'
                                             >{genre}</button>
