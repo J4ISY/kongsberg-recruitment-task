@@ -17,7 +17,7 @@ function useCategories() {
                 const response = await fetch('https://free-to-play-games-database.p.rapidapi.com/api/games', options);
                 const result = await response.json();
                 // Set is deleting duplicates creating a new array w unique "game genre"
-                const genres = [...new Set(result.map((game) => game.genre))];
+                const genres = [...new Set(result.map((game) => game.genre.trim()))];
                 setData(genres);
             } catch (error) {
                 console.error(error);

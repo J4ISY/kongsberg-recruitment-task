@@ -53,6 +53,18 @@ function LandingPage() {
                                                 onClick={() => {
                                                     setCategoryGame(genre);
                                                     console.log('genre game ' + setCategoryGame);
+                                                    if(genre === 'Action RPG' || genre === 'ARPG') {
+                                                        setCategoryGame('action-rpg')
+                                                    }
+                                                    if(genre === 'MMORPG' || genre === 'MMOARPG') {
+                                                        setCategoryGame('mmo')
+                                                    }
+                                                    if(genre === 'Card Game') {
+                                                        setCategoryGame('card')
+                                                    }
+                                                    if(genre === 'Battle Royale') {
+                                                        setCategoryGame('battle-royale')
+                                                    }
                                                 }}
                                                 className='dropdown-item'
                                             >{genre}</button>
