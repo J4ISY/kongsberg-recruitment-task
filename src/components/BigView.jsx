@@ -10,12 +10,19 @@ function BigView() {
 
     return (
         <>
-            <Header/>
+            <header className="header">
+                <div className="header-wrapper">
+                    <Link to='/'><img src="src/assets/images/logo.png" alt="xbox controller"
+                                      className="header-logo"/></Link>
+                    <nav className="header-nav">
+                        <Link to="/" className="home-link">Main Page</Link>
+                    </nav>
+                </div>
+            </header>
             <div className="big-view">
                 <Link to='/' className='big-go-back'><AiOutlineRollback/></Link>
                 <div className="big-view-wrapper">
                     {data && (
-                        // console.log(data),
                         <>
                             <div className="big-top">
                                 <div className="big-cont-img">

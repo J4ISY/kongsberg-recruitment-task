@@ -1,17 +1,16 @@
-import Header from "./template/Header.jsx";
-import {AiOutlineSearch} from "react-icons/ai";
 import {Link} from "react-router-dom";
-// import useGameData from "../helpers/apiGames.jsx";
 import {useEffect, useState} from "react";
 import useCategories from "../helpers/apiCategories.jsx";
 
 function LandingPage() {
 
-    const [data, setData] = useState('');
+    const [data, setData] = useState(null);
     const [categoryGame, setCategoryGame] = useState('shooter');
+    const [url, setUrl] = useState('https://free-to-play-games-database.p.rapidapi.com/api/games');
 
     const dataCategories = useCategories();
 
+    // Games
     useEffect(() => {
         async function fetchGames() {
 
@@ -24,7 +23,7 @@ function LandingPage() {
             };
 
             try {
-                const response = await fetch(`https://free-to-play-games-database.p.rapidapi.com/api/games?category=${categoryGame}`, options);
+                const response = await fetch(url, options);
                 const result = await response.json();
                 setData(result);
             } catch (error) {
@@ -35,6 +34,7 @@ function LandingPage() {
         fetchGames();
     });
 
+
     return (
         <>
             <header className="header">
@@ -44,13 +44,20 @@ function LandingPage() {
                     <nav className="header-nav">
                         <Link to="/" className="home-link">Main Page</Link>
                         <div className="dropdown">
-                            <button className="home-link drop-btn">Dropdown<i className="arrow down"></i></button>
+                            <button className="home-link drop-btn">Game Genre<i className="arrow down"></i></button>
                             <div className="dropdown-content">
+                                <button
+                                    onClick={() => {
+                                        setUrl('https://free-to-play-games-database.p.rapidapi.com/api/games');
+                                    }}
+                                    className='dropdown-item'
+                                >All games</button>
                                 {dataCategories.map((genre) => {
                                     return (
                                         <>
                                             <button
                                                 onClick={() => {
+                                                    setUrl(`https://free-to-play-games-database.p.rapidapi.com/api/games?category=${categoryGame}`)
                                                     setCategoryGame(genre);
                                                     console.log('genre game ' + setCategoryGame);
                                                     if(genre === 'Action RPG' || genre === 'ARPG') {
@@ -78,15 +85,21 @@ function LandingPage() {
             </header>
             <main className="main">
                 <form action="" className="search-games">
-                    <label htmlFor="search-games-input"></label>
-                    <input
-
-                        type="text" className='search-games-t' name="search-games-input" id="search-games-input"
-                           placeholder='Search for games'/>
-                    <button
-
-                        className='search-games-btn'
-                    ><AiOutlineSearch/></button>
+                    {/*<label htmlFor="search-games-input"></label>*/}
+                    {/*<input*/}
+                    {/*    value={gameName}*/}
+                    {/*    onChange={handleInputChange}*/}
+                    {/*    type="text" className='search-games-t' name="search-games-input" id="search-games-input"*/}
+                    {/*       placeholder='Search for games'/>*/}
+                    {/*<button*/}
+                    {/*    onClick={handleSearchGame}*/}
+                    {/*    className='search-games-btn'*/}
+                    {/*><AiOutlineSearch/></button>*/}
+                    {/*<Link*/}
+                    {/*    to='/'*/}
+                    {/*    type="submit"*/}
+                    {/*    className="get-random-game"*/}
+                    {/*>Try your luck!</Link>*/}
                 </form>
                 <div className="main-wrapper">
                     <div className="main-row">
