@@ -12,7 +12,6 @@
   padding-top: 20px;
   padding-bottom: 20px;
   padding-left: 10px;
-  //margin: auto;
 }
 
 .header-logo {
@@ -46,7 +45,6 @@
   }
 }
 
-/* Stylizacja dropdownu */
 .dropdown {
   position: relative;
   display: inline-block;
@@ -65,11 +63,9 @@
   border-width: 0 3px 3px 0;
   display: inline-block;
   padding: 3px;
-//  Down
   transform: rotate(45deg);
 }
 
-/* Stylizacja zawartości dropdownu */
 .dropdown-content {
   display: none;
   position: absolute;
@@ -79,9 +75,6 @@
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   z-index: 99;
 }
-
-/* Stylizacja elementów w dropdownie */
-
 
 .dropdown-item {
   color: black;
@@ -100,4 +93,71 @@
 
 .dropdown:hover .dropdown-content {
   display: block;
+}
+
+@media only screen and (max-width: 750px) {
+  .header-wrapper {
+    width: 100%;
+  }
+  .header-nav {
+    justify-content: flex-end;
+    width: 60%;
+    margin: auto 0 auto auto;
+  }
+  .home-link {
+    padding: 10px 20px;
+    font-size: 18px;
+    margin-right: 10px;
+  }
+  .dropdown-content {
+    min-width: 140px;
+  }
+  .header-logo {
+    width: 110px;
+  }
+  .arrow.down {
+    bottom: 20px;
+    right: 6px;
+  }
+}
+
+@media only screen and (max-width: 675px) {
+  .header-nav {
+    min-width: unset;
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 430px) {
+  .header-logo {
+    width: 90px;
+  }
+  .home-link {
+    padding: 10px 20px;
+    font-size: 15px;
+    margin-right: 10px;
+    border: 2px solid rgba(255, 255, 255, .5);
+  }
+  .arrow.down {
+    bottom: 15px;
+  }
+  .dropdown-content {
+    min-width: unset;
+    width: 123px;
+  }
+}
+@media only screen and (max-width: 380px) {
+  .header-nav {
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  .header-logo {
+    width: 120px;
+  }
+  .home-link {
+    align-self: flex-end;
+  }
+  .dropdown {
+    margin-top: 5px;
+    align-self: flex-end;
+  }
 }

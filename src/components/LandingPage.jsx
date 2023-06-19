@@ -14,13 +14,6 @@ function LandingPage() {
 
     useEffect(() => {
         async function fetchGames() {
-            // e.preventDefault();
-            // if(genreGame === '') {
-            //     setGenreGame('shooter');
-            // }
-            // else {
-            //     setUrl = `https://free-to-play-games-database.p.rapidapi.com/api/games?category=${genreGame}`;
-            // }
 
             const options = {
                 method: 'GET',
@@ -41,12 +34,6 @@ function LandingPage() {
 
         fetchGames();
     });
-
-    // const handleCategory = (input) => {
-    //     setUrl(`https://free-to-play-games-database.p.rapidapi.com/api/games?category=${genreGame}`)
-    //     setGenreGame(input)
-    //     console.log(input);
-    // }
 
     return (
         <>
@@ -80,9 +67,14 @@ function LandingPage() {
             <main className="main">
                 <form action="" className="search-games">
                     <label htmlFor="search-games-input"></label>
-                    <input type="text" className='search-games-t' name="search-games-input" id="search-games-input"
+                    <input
+
+                        type="text" className='search-games-t' name="search-games-input" id="search-games-input"
                            placeholder='Search for games'/>
-                    <button className='search-games-btn'><AiOutlineSearch/></button>
+                    <button
+
+                        className='search-games-btn'
+                    ><AiOutlineSearch/></button>
                 </form>
                 <div className="main-wrapper">
                     <div className="main-row">
