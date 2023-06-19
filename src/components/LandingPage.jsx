@@ -1,10 +1,12 @@
 import {Link} from "react-router-dom";
 import {useEffect, useState} from "react";
 import useCategories from "../helpers/apiCategories.jsx";
+// import {AiOutlineSearch} from "react-icons/ai";
 
 function LandingPage() {
 
     const [data, setData] = useState(null);
+    // const [gameName, setGameName] = useState('');
     const [categoryGame, setCategoryGame] = useState('shooter');
     const [url, setUrl] = useState('https://free-to-play-games-database.p.rapidapi.com/api/games');
 
@@ -17,7 +19,7 @@ function LandingPage() {
             const options = {
                 method: 'GET',
                 headers: {
-                    'X-RapidAPI-Key': '1d6ce4a9c9msh109797109f8c49cp1bb5ecjsneffd7b998d9c',
+                    'X-RapidAPI-Key': `${import.meta.env.VITE_API_SECRET}`,
                     'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com'
                 }
             };
@@ -33,7 +35,6 @@ function LandingPage() {
 
         fetchGames();
     });
-
 
     return (
         <>
@@ -59,7 +60,6 @@ function LandingPage() {
                                                 onClick={() => {
                                                     setUrl(`https://free-to-play-games-database.p.rapidapi.com/api/games?category=${categoryGame}`)
                                                     setCategoryGame(genre);
-                                                    console.log('genre game ' + setCategoryGame);
                                                     if(genre === 'Action RPG' || genre === 'ARPG') {
                                                         setCategoryGame('action-rpg')
                                                     }
@@ -84,23 +84,18 @@ function LandingPage() {
                 </div>
             </header>
             <main className="main">
-                <form action="" className="search-games">
-                    {/*<label htmlFor="search-games-input"></label>*/}
-                    {/*<input*/}
-                    {/*    value={gameName}*/}
-                    {/*    onChange={handleInputChange}*/}
-                    {/*    type="text" className='search-games-t' name="search-games-input" id="search-games-input"*/}
-                    {/*       placeholder='Search for games'/>*/}
-                    {/*<button*/}
-                    {/*    onClick={handleSearchGame}*/}
-                    {/*    className='search-games-btn'*/}
-                    {/*><AiOutlineSearch/></button>*/}
-                    {/*<Link*/}
-                    {/*    to='/'*/}
-                    {/*    type="submit"*/}
-                    {/*    className="get-random-game"*/}
-                    {/*>Try your luck!</Link>*/}
-                </form>
+                {/*<form action="" className="search-games">*/}
+                {/*    <label htmlFor="search-games-input"></label>*/}
+                {/*    <input*/}
+                {/*        value={gameName}*/}
+                {/*        onChange={handleInputChange}*/}
+                {/*        type="text" className='search-games-t' name="search-games-input" id="search-games-input"*/}
+                {/*           placeholder='Search for games'/>*/}
+                {/*    <button*/}
+                {/*        onClick={handleSearchGame}*/}
+                {/*        className='search-games-btn'*/}
+                {/*    ><AiOutlineSearch/></button>*/}
+                {/*</form>*/}
                 <div className="main-wrapper">
                     <div className="main-row">
                         {data && data.map((entry) => {

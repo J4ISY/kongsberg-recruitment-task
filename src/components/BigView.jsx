@@ -1,4 +1,3 @@
-import Header from "./template/Header.jsx";
 import useBigView from "../helpers/apiBigView.jsx";
 import {Link} from "react-router-dom";
 import {AiOutlineRollback} from "react-icons/ai";

@@ -8,7 +8,7 @@ function useCategories() {
             const options = {
                 method: 'GET',
                 headers: {
-                    'X-RapidAPI-Key': '1d6ce4a9c9msh109797109f8c49cp1bb5ecjsneffd7b998d9c',
+                    'X-RapidAPI-Key': `${import.meta.env.VITE_API_SECRET}`,
                     'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com'
                 }
             };
